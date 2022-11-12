@@ -1,0 +1,113 @@
+//Esercizio operatori
+
+public class EsempiOperatori {
+
+    public static void main(String[] args) {
+
+        // valutare el seguenti espressioni:
+        int i = 4, j = 7;
+
+        j = i + (i = j); // i=7 j=11
+        j = i + (i = i); // i=4 j=8
+        j = (i = j) + i; // i=7 j=14
+        j = i-- + --j; // i=3 j=10
+        j = i + (j = j + 1) + (j = i + 2) + (i = j);
+
+        // trovare i valorei delle espressioni+effetti collaterali
+
+        int x = 8, y = 9;
+        boolean b;
+
+        // x=y; //int x=9 y=9
+        // x==y; //boolean false x=8 y=9
+        // x!=y; //boolean true x=8 y=9
+        // ++x==--y; //boolean false x=9 y=8
+        // ++x==y--; //boolean true x=9 y=8(eff. coll.)
+        // x++==--y; //boolean true x=9 y=8
+        // x++==y--; //boolean false x=9 y=8
+
+        b = ((x - y) < (y = x) && (x == y--));
+        // -1<8 && (8==8) true x=8 y=7
+
+        b = ((x - y) > (y = x) && (x == y--));
+        // (-1>8) &&.... false,lazy evaluation(non decrementa y, se lo voglio uso &, and
+        // logico, && è condizionale) x=8 y=8
+
+        b = ((x - y) > (y = x) & (x == y--));
+        // flase, no lazy x=8 y=7
+
+        b = ((x - y) < (y = x) || (x == y--));
+        // (-1<8) ||... true, si lazy x=8 y=8
+
+        b = ((x - y) > (y = x) || (x == y--));
+        // (-1>8) || (8==8) true, x=8 y=7
+
+        b = ((x - y) < (y = x) | (x == y--));
+        // true, no lazy x=8 y=7
+
+        b = !((x - y) < (y = x)) && (x == y--);
+        // (-1>8) false, si lazy x=8 y=8
+
+        b = !((x - y) > (y = x)) && (x == y--);
+        // (-1<8) && (8==8) true x=8 y=7
+
+        b = !((x - y) < (y = x)) || (x == y--);
+        // true x=8 y=7
+
+        b = !((x - y) > (y = x)) || (x == y--);
+        // true, si lazy x=8 y=8
+
+        int c;
+        c = x == y ? x++ : --y; // condizione falsa c=--y=8 x=8 y=8
+
+        c = x != y ? x++ : --y; // condzione true c=x++=8 x=9 y=9
+
+        /*
+         * per ognuno dei seguenti assegnamenti scrivete delle dichiarazioni per le
+         * variabili che vi compaiono,
+         * cosicchè essi risultino corretti dal punto di vista dei tipi; se ciò non è
+         * possibile, spiegatene il motivo
+         */
+
+        // x=(y-->4) && !z;
+        // x=boolean y=int z=boolean
+
+        // x= x==y;
+        // x=boolean y=boolean
+
+        // x = X==1;
+        // assegnamento non valido, x è o boolean o intero
+
+        // x = x = 1;
+        // int x
+
+        // x=!x;
+        // boolean x
+
+        // x = x = x;
+        // x di qualsiasi tipo
+
+        // x = x == x
+        // boolean x = true
+
+        /*
+         * indicate i valori delle variabili dopo l'esecuzione nei seguenti casi
+         * 1)x1=y1=0
+         * 2)x1=3 y1=0
+         * 3)x1=3 y1=1
+         */
+
+        int x1, y1;
+
+        // if (x1<=y1||(x1=y1++)>0);
+        // x1=y1;
+
+        /*
+         * 1)x1=0 y1=0 true, si lazy
+         * 2)x1=0 y1=1 false, no lazy
+         * 3)x1=2 y2=2 true. no lazy
+         */
+
+    }
+
+}
