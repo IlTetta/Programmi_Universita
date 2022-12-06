@@ -1,0 +1,10 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\jarlib\\prog-4ed.jar"
+    ],
+    "cSpell.words": [
+        "Esercitazione",
+        "Matrice"
+    ]
+}

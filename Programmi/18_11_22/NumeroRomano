@@ -1,0 +1,20 @@
+/*Es2.1 
+    public NumeroRomano somma(NumeroRomano altro){
+    int n1=R.getValore(), n2=altro.getValore();
+    int somma=n1+n2;
+    return NumeroRomano(somma);
+    return new NumeroRomano(this.getValore()+altro.getValore());
+}
+
+Es2.2
+//costruttore
+public MatriceNumeriRomani(int x, int y, romano r){
+    m=new NumeroRomano[x][y]
+    for (i=0;i<x;i++){
+        for(int j=0;j<y;j++){
+            m[i][j]=r;
+        }
+    }
+}
+ * 
+ */
