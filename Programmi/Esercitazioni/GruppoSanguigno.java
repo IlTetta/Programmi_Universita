@@ -1,5 +1,3 @@
-import javax.sound.sampled.SourceDataLine;
-
 public enum GruppoSanguigno {
     A, B, AB, O;
 
@@ -7,22 +5,14 @@ public enum GruppoSanguigno {
         boolean y = false;
         switch (this) {
             case A:
-                if (x == A || x == O)
-                    return true;
-                else
-                    return false;
+                return (x == A || x == O);
 
             case B:
-                if (x == B || x == O)
-                    return true;
-                else
-                    return false;
+                return (x == B || x == O);
 
             case O:
-                if (x == O)
-                    return true;
-                else
-                    return false;
+                return (x == O);
+
             case AB:
                 return true;
 
